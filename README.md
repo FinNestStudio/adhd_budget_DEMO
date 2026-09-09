@@ -1,73 +1,42 @@
 # ADHD Budget Planner — free live demo
 
-The hosted, capped demo of [FinNestStudio's ADHD Budget Planner & Safe to Spend
-Tracker](https://www.etsy.com/shop/FinNestStudio). One file, no build step, no
-dependencies — GitHub Pages serves `index.html` and that is the whole site.
+A free, working demo of the **ADHD Budget Planner & Safe to Spend Tracker** by
+[FinNestStudio](https://www.etsy.com/shop/FinNestStudio).
 
-## What the demo is
+### ▶ [Try it now](https://finneststudio.github.io/adhd_budget_DEMO/)
 
-The real planner, with example data already in it, limited to **40 logged
-spends**. Everything else works: bills, goals, the month view, milestones, the
-money check, CSV export, backup export.
+No download. No sign-up. No email address.
 
-- **Nothing leaves the browser.** No server, no account, no analytics, no
-  network calls of any kind. The one outbound link is the Etsy shop button.
-- **Sandboxed storage.** The demo saves under `finnest_adhd_budget_demo`, so it
-  can never touch a buyer's real file at `finnest_adhd_budget_v1` — even if
-  someone opens both from the same browser.
-- **The work is portable.** At the cap the demo offers a backup download. That
-  file is a standard FinNest backup and the paid planner opens it with every
-  spend, bill and goal intact. This is proved by a test, not assumed — see
-  `_build/adhd-v23/test/demo-cap.test.mjs` in the main project.
+---
 
-## Publishing it
+## What it is
 
-The repo has no build step: whatever `index.html` contains is what visitors get.
+One honest number for today: what is actually safe to spend, once your bills,
+your goals and what you have already spent are taken out of the figure.
 
-```bash
-git init -b main
-git add -A
-git commit -m "ADHD Budget Planner free demo"
-git remote add origin https://github.com/<your-username>/<repo-name>.git
-git push -u origin main
-```
+This demo is the real planner running in your browser with example data already
+in it. Bills, goals, the month view, milestones, the money check and the
+calculations all work exactly as they do in the full version. You can log up to
+40 spends before it asks you to buy.
 
-Then in the repo on github.com: **Settings → Pages → Source: Deploy from a
-branch → Branch: `main` / `/ (root)` → Save.**
+## Your data stays yours
 
-The site appears at `https://<your-username>.github.io/<repo-name>/` within a
-minute or two. Put that URL in the Etsy listing description and in the shop
-announcement.
+The page makes **no network calls of any kind** — no server, no account, no
+tracking, no analytics. Everything you type is held in your own browser and
+goes nowhere else. The only outbound link on the page is the button to the
+Etsy shop.
 
-`.nojekyll` is present so GitHub serves the files as-is rather than running them
-through Jekyll.
+That is not a demo limitation. The full planner is a single HTML file that
+works offline, forever, with no subscription and no company in the middle.
 
-## Updating it after a product release
+## If you decide to buy
 
-From the main project, one command rebuilds the demo from the current source and
-drops it here:
+Download your file from the demo first. It is a standard backup, and the full
+planner opens it exactly as you left it — every spend, bill and goal still in
+place. Nothing has to be typed twice.
 
-```bash
-node _build/adhd-v23/build.mjs --demo --deploy
-```
+**[Get the full planner on Etsy →](https://www.etsy.com/shop/FinNestStudio?ref=demo)**
 
-Then commit and push this repo again. The build refuses to ship if the demo is
-not sandboxed, if the cap is missing, or if the cap has landed outside the app
-closure where it cannot work.
+---
 
-## The two settings worth changing
-
-Both live at the top of `_build/adhd-v23/src/90-demo-cap.js` in the main
-project — change them there and rebuild, not in `index.html`, which is
-generated.
-
-| Setting | Now | Note |
-|---|---|---|
-| `DEMO_CAP` | `40` | Matches what the competing hosted demos allow. |
-| `DEMO_BUY_URL` | shop front, `?ref=demo` | Swap in the direct listing URL once it is live — it converts better, and the `ref` lets Etsy stats show how much traffic the demo sends. |
-
-## What is deliberately not here
-
-The buyer file. `index.html` is built from the same source but is a different
-build: the paid download has no cap, no Etsy link, and no demo code in it at
-all. The build asserts this on every run.
+<sub>Digital planner · works offline · one-time purchase · © FinNestStudio</sub>
