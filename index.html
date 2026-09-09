@@ -1914,7 +1914,7 @@ button:focus-visible,summary:focus-visible{outline:3px solid var(--focus-ring);o
 <!-- ============ the app ============ -->
 <div id="app" hidden>
   <div class="demobar" id="demobar">
-    <span>👋 free demo · the real planner with example data — change anything you like, it only lives in your browser</span>
+    <span>👋 free demo · example data, and nothing leaves your browser</span>
     <button class="linkbtn" id="demoExit">reset the example</button>
   </div>
 
@@ -8526,6 +8526,32 @@ document.addEventListener("click", function(e){
 /* boot() runs immediately after this fragment and shows the banner, so the
    first paint has to wait for it rather than racing it. */
 setTimeout(paintDemoBar, 0);
+
+/* boot() ends by calling go(), which sets location.hash — and the browser then
+   applies that fragment jump when the document reaches "complete", scrolling
+   the target into view. In the buyer file the banner is hidden so nothing sits
+   above the target and the jump is invisible; here it puts the banner, and the
+   buy button on it, off the top of the very first view.
+
+   Measured: DOMContentLoaded at y=0, then y=89 in the same tick as "complete".
+   So the correction is anchored to that event rather than to a timer, and runs
+   for two more frames in case layout settles late. A visitor who scrolls for
+   themselves is left alone from that moment on. */
+(function(){
+  var released = false;
+  ["wheel","touchstart","keydown","pointerdown"].forEach(function(ev){
+    window.addEventListener(ev, function(){ released = true; }, {once:true, passive:true});
+  });
+  try{ if("scrollRestoration" in history) history.scrollRestoration = "manual"; }catch(e){}
+
+  function toTop(frames){
+    if(released) return;
+    if(window.pageYOffset !== 0) window.scrollTo(0, 0);
+    if(frames > 0) requestAnimationFrame(function(){ toTop(frames - 1); });
+  }
+  if(document.readyState === "complete") toTop(2);
+  else window.addEventListener("load", function(){ toTop(2); });
+})();
 
 boot();
 })();
