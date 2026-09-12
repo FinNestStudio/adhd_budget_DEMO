@@ -35,7 +35,7 @@ Download your file from the demo first. It is a standard backup, and the full
 planner opens it exactly as you left it — every spend, bill and goal still in
 place. Nothing has to be typed twice.
 
-**[Get the full planner on Etsy →](https://www.etsy.com/shop/FinNestStudio?ref=demo)**
+**[Get the full planner on Etsy →](https://www.etsy.com/listing/4522929852/adhd-budget-planner-safe-to-spend?ref=demo)**
 
 ---
 
