@@ -1,6 +1,6 @@
 # ADHD Budget Planner — free live demo
 
-A free, working demo of the **ADHD Budget Planner & Safe to Spend Tracker** by
+A free, working demo of the **ADHD Budget Planner & Safe to Spend Tracker v2.4** by
 [FinNestStudio](https://www.etsy.com/shop/FinNestStudio).
 
 ### ▶ [Try it now](https://finneststudio.github.io/adhd_budget_DEMO/)
@@ -26,8 +26,8 @@ tracking, no analytics. Everything you type is held in your own browser and
 goes nowhere else. The only outbound link on the page is the button to the
 Etsy shop.
 
-That is not a demo limitation. The full planner is a single HTML file that
-works offline, forever, with no subscription and no company in the middle.
+The full planner includes an installable app with optional encrypted sync
+between your devices, plus an offline HTML file. There is no subscription.
 
 ## If you decide to buy
 
